@@ -154,6 +154,61 @@ body{
     color:var(--text);
 }
 
+.ad-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.ad-slot{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:24px;
+    min-height:220px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.ad-label{
+    font-size:.8rem;
+    font-weight:800;
+    letter-spacing:1px;
+    color:var(--muted);
+    text-transform:uppercase;
+    margin-bottom:14px;
+}
+
+.ad-title{
+    font-size:1.35rem;
+    margin-bottom:12px;
+}
+
+.ad-text{
+    color:var(--text);
+    line-height:1.6;
+    margin-bottom:22px;
+    flex-grow:1;
+}
+
+.ad-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px 18px;
+    border-radius:999px;
+    background:var(--accent);
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    transition:.2s;
+}
+
+.ad-btn:hover{
+    opacity:.95;
+}
+
 .section{
     max-width:1400px;
     margin:auto;
@@ -248,15 +303,14 @@ body{
 <body>
 
     <div id="livePopup" class="live-popup">
-    <div class="live-popup-content">
-
-
-</div>
-<div class="ticker-wrap">
-    <div class="ticker" id="ticker">
-       LOADING LIVE MARKET DATA • LOADING LIVE MARKET DATA •
+        <div class="live-popup-content">
+        </div>
     </div>
-</div>
+    <div class="ticker-wrap">
+        <div class="ticker" id="ticker">
+           LOADING LIVE MARKET DATA • LOADING LIVE MARKET DATA •
+        </div>
+    </div>
 
 <nav class="nav">
     <div class="nav-container">
@@ -314,6 +368,39 @@ body{
             <div id="goldChange">Loading...</div>
         </div>
 
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">Sponsored Ad Slots</h2>
+
+    <div class="ad-grid">
+        <div class="ad-slot">
+            <div>
+                <div class="ad-label">Sponsored</div>
+                <div class="ad-title">Ad Slot 1</div>
+                <div class="ad-text">Perfect placement for featured financial services, investment products, and market tools targeting African investors.</div>
+            </div>
+            <a class="ad-btn" href="#">Book this slot</a>
+        </div>
+
+        <div class="ad-slot">
+            <div>
+                <div class="ad-label">Sponsored</div>
+                <div class="ad-title">Ad Slot 2</div>
+                <div class="ad-text">Use this space for branded finance content, partnership messaging, or promotion of premium analysis tools.</div>
+            </div>
+            <a class="ad-btn" href="#">Book this slot</a>
+        </div>
+
+        <div class="ad-slot">
+            <div>
+                <div class="ad-label">Sponsored</div>
+                <div class="ad-title">Ad Slot 3</div>
+                <div class="ad-text">Highlight new product launches, corporate announcements, or education programs to an engaged market audience.</div>
+            </div>
+            <a class="ad-btn" href="#">Book this slot</a>
+        </div>
     </div>
 </section>
 
@@ -725,8 +812,6 @@ setInterval(
 );
 
 </script>
-```
-
 
 </body>
 </html>
