@@ -442,8 +442,10 @@ document
 
             if(!symbol) return;
 
-            window.location.href =
-`stock.html?symbol=${symbol}`;
+            window.open(
+                `https://finance.yahoo.com/quote/${symbol}`,
+                "_blank"
+            );
         }
     }
 );
