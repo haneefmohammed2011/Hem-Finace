@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Ad Slot | H.E.M Finance</title>
+<style>
+    /* --- CSS FROM YOUR MAIN PAGE --- */
+    :root{ --accent:#003399; --deep:#001f5c; --bg:#ffffff; --card:#ffffff; --text:#111827; --muted:#64748b; --border:#e2e8f0; --ticker:#001f5c; }
+    [data-theme="dark"]{ --bg:#050b14; --card:#0b1220; --text:#f8fafc; --muted:#94a3b8; --border:#1e293b; --ticker:#020817; }
+    *{ margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
+    body{ background:var(--bg); color:var(--text); transition:.3s; padding: 40px 20px; }
+    
+    .container { max-width: 600px; margin: auto; }
+    h1 { margin-bottom: 10px; }
+    p { color: var(--muted); margin-bottom: 30px; }
+    
+    .form-group { margin-bottom: 20px; }
+    label { display: block; margin-bottom: 8px; font-weight: 600; }
+    input, select { width: 100%; padding: 16px; border: 1px solid var(--border); border-radius: 14px; background: var(--card); color: var(--text); font-size: 1rem; }
+    
+    .submit-btn { width: 100%; padding: 18px; border: none; border-radius: 14px; background: var(--accent); color: white; font-weight: 700; cursor: pointer; font-size: 1rem; margin-top: 10px; }
+    .submit-btn:hover { opacity: 0.9; }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Book Your Ad Slot</h1>
+    <p>Complete the form below to initiate your advertising partnership with H.E.M Finance.</p>
+    
+    <form id="bookingForm">
+        <div class="form-group">
+            <label>Selected Placement</label>
+            <select id="placement">
+                <option value="header">Header Banner - $500</option>
+                <option value="sidebar">Sidebar Square - $300</option>
+                <option value="article">In-Article Slot - $400</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Company/Brand Name</label>
+            <input type="text" id="company" placeholder="Enter your brand name" required>
+        </div>
+
+        <div class="form-group">
+            <label>Contact Email</label>
+            <input type="email" id="email" placeholder="email@company.com" required>
+        </div>
+
+        <button type="submit" class="submit-btn">Send Booking Request</button>
+    </form>
+</div>
+
+<script>
+    // --- BOOKING LOGIC ---
+    document.getElementById('bookingForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const placement = document.getElementById('placement').value;
+        const company = document.getElementById('company').value;
+        const email = document.getElementById('email').value;
+
+        // Construct the email body
+        const subject = encodeURIComponent(`Ad Slot Booking: ${company}`);
+        const body = encodeURIComponent(
+            `Company Name: ${company}\n` +
+            `Contact Email: ${email}\n` +
+            `Requested Placement: ${placement}\n\n` +
+            `Please reach out to discuss this advertising campaign.`
+        );
+
+        // Trigger the user's email client
+        window.location.href = `mailto:ads@hemafrica.com?subject=${subject}&body=${body}`;
+
+        // Provide immediate feedback
+        alert('Opening your email client to send your request to H.E.M Finance. Alternatively, you can reach us at 09046199743.');
+    });
+
+    // --- MAINTAIN THEME ---
+    if(localStorage.getItem("theme") === "dark"){
+        document.documentElement.setAttribute("data-theme", "dark");
+    }
+</script>
+
+</body>
+</html>
